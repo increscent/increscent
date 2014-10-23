@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="math.css"/>
+
+<div id="controls" class="row">
+	<div class="col-xs-1 text-right">
+		From:
+		<span id="range-low-value">3</span>
+	</div>
+	<div class="col-xs-3">
+		<input id="range-low" type="range" min="1" max="12" value="3" />
+	</div>
+	<div class="col-xs-1 text-right">
+		To:
+		<span id="range-high-value">12</span>
+	</div>
+	<div class="col-xs-3">
+		<input id="range-high" type="range" min="1" max="12" value="12" />
+	</div>
+	<div class="col-xs-4 text-right">
+		Multiply or Divide
+		<select id="operator">
+			<option value="both">both</option>
+			<option value="x">multiply</option>
+			<option value="/">divide</option>
+		</select>
+	</div>
+</div>
+
+<div id="question">
+</div>
+
+<div class="text-center">
+	<input id="answer" type="text" size="5" />
+	&nbsp; &nbsp;
+	<button id="check" class="button">check</button>
+</div>
+
+<div id="indicators" class="row text-center">
+	<div id="clock" class="col-xs-3">
+		00:00
+	</div>
+	<div id="feedback" class="col-xs-6">
+	</div>
+	<div id="count" class="col-xs-3">
+		0
+	</div>
+</div>
+
+<script type="text/javascript" src="math.js"></script>

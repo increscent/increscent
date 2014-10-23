@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+#stocks {
+	margin-top: 55px;
+}
+
+.stock {
+	margin-top: 13px;
+	padding: 5px 0;
+}
+
+.stock:nth-child(odd) {
+	background-color: #eee;
+}
+
+#footer {
+	display: none;
+}
