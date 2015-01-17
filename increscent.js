@@ -15,12 +15,11 @@ var certificate = fs.readFileSync('./increscent/ssl/increscent.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};*/
 
 // load in server files
-var ui = require('./increscent/ui/ui.js');
-var scriptures = require('./increscent/scriptures/scriptures.js');
+var ui = require('./ui/ui.js');
 
 // setup web app
 var app = express();
-app.use('/', express.static(__dirname + '/increscent/www/'));
+app.use('/', express.static(__dirname + '/www/'));
 app.use('/', express.static(__dirname + '/global/'));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -36,38 +35,11 @@ app.get('/', function(req, res) {
 app.get('/math', function(req, res) {
 	ui.load_page(res, 'math');
 });
-// scriptures
-app.get('/scriptures', function(req, res) {
-	ui.load_page(res, 'scriptures');
-});
 // stocks
 app.get('/stocks', function(req, res) {
 	ui.load_page(res, 'stocks');
 });
 
-
-// ********** scriptures ********** //
-app.post('/scriptures/works/*', function(req, res) {
-	res.send(scriptures.get_work(req.url.replace('/scriptures/works/', '')));
-});
-app.post('/scriptures/books/*', function(req, res) {
-	var url = req.url.replace('/scriptures/books/', '');
-	var work = parseInt(url.substring(0, url.indexOf('/')));
-	var book_index = parseInt(url.substring(url.indexOf('/') + 1, url.length));
-	res.send(scriptures.get_book(work, book_index));
-});
-app.post('/scriptures/chapters/*', function(req, res) {
-	var url = req.url.replace('/scriptures/chapters/', '');
-	var index_1 = url.indexOf('/');
-	var index_2 = url.indexOf('/', index_1 + 1);
-	var work = parseInt(url.substring(0, index_1));
-	var book_index = parseInt(url.substring(index_1 + 1, index_2));
-	var chapter = parseInt(url.substring(index_2 + 1));
-	res.send(scriptures.get_chapter(work, book_index, chapter));
-});
-app.post('/scriptures/index', function(req, res) {
-	res.send(scriptures.get_index());
-});
 
 
 // ********** stocks ********** //
