@@ -1,0 +1,85 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Mate", Helvetica, Arial, Sans-Serif;
+}
+
+div, header {
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  padding: 1rem 15%;
+  margin: 1rem 0;
+  font-size: 2rem;
+  color: #000;
+  text-transform: uppercase;
+  font-family: "Source Code Pro";
+}
+
+.card {
+  margin-top: 1rem;
+  width: 100%;
+  max-height: 3.8rem;
+  padding: 1rem 0;
+  overflow: hidden;
+  text-align: center;
+  z-index: 10;
+}
+
+.card:hover {
+  background-color: #f7f7f7;
+  max-height: 20rem;
+}
+
+.card .title {
+  font-size: 1.5rem;
+}
+
+.card .content {
+  padding-top: 2rem;
+  padding: 2rem 24% 0;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.card .content p {
+  text-indent: 1rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+  z-index: -1;
+  font-family: "Source Code Pro";
+}
+
+.transition {
+  -moz-transition: max-height .7s ease-out;
+  -webkit-transition: max-height .7s ease-out;
+  -moz-transition: max-height .7s ease-out;
+  -o-transition: max-height .7s ease-out;
+  transition: max-height .7s ease-out;
+}
+
+.dark-green {
+  color: #336732;
+}
+
+.mid-green {
+  color: #4A9647;
+}
+
+.light-green {
+  color: #6BBB69;
+}
+
+a {
+  color: #327DC9;
+  text-decoration: underline;
+}
