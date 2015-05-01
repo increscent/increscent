@@ -19,6 +19,7 @@ var ui = require('./ui/ui.js');
 
 // setup web app
 var app = express();
+app.use('/', express.static(__dirname + '/www/rw/'));
 app.use('/', express.static(__dirname + '/www/'));
 app.use('/', express.static(__dirname + '/global/'));
 app.use(express.json());
@@ -28,9 +29,9 @@ app.use(express.urlencoded());
 ui.init_pages();
 
 // main site
-app.get('/', function(req, res) {
-	ui.load_page(res, 'robert');
-});
+//app.get('/', function(req, res) {
+//	ui.load_page(res, 'robert');
+//});
 // John's math
 app.get('/math', function(req, res) {
 	ui.load_page(res, 'math');
