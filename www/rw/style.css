@@ -12,7 +12,7 @@ div, header {
 header {
   width: 100%;
   padding: 1rem 15%;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
   font-size: 2rem;
   color: #000;
   text-transform: uppercase;
@@ -25,18 +25,19 @@ header {
   max-height: 3.8rem;
   padding: 1rem 0;
   overflow: hidden;
-  text-align: center;
   background-color: #fff;
   z-index: 10;
 }
 
 .card:hover {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   max-height: 20rem;
 }
 
 .card .title {
+  text-align: left;
   font-size: 1.5rem;
+  padding: 0 24%;
 }
 
 .card .content {
@@ -87,6 +88,10 @@ a {
 
 /* mobile */
 @media (max-width: 768px) {
+  header {
+    margin-bottom: 0;
+  }
+
   .card {
     max-height: 100%;
   }
@@ -98,7 +103,7 @@ a {
   .card .title {
     display: block;
     width: 100%;
-    padding: 1rem 0;
+    padding: 1rem;
     background-color: #f3f3f3;
   }
 
