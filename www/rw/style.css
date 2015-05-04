@@ -31,7 +31,7 @@ header {
 
 .card:hover {
   background-color: #eaeaea;
-  max-height: 20rem;
+  max-height: 25rem;
 }
 
 .card .title {
