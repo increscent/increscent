@@ -1,5 +1,6 @@
 // load in modules
 var fs = require('fs');
+var path = require('path');
 // global variables
 var header = "";
 var footer = "";
@@ -10,10 +11,11 @@ var pages = {};
  * This function loads in the site pages initially so that they can be accessed easily when necessary
  */
 function init_pages() {
-	fs.readFile('./www/main/header.html', function(err, data) {
+	var www_path = path.join(__dirname, '..', 'www', 'main');
+	fs.readFile(www_path + '/header.html', function(err, data) {
 		header = data.toString();
 	});
-	fs.readFile('./www/main/footer.html', function(err, data) {
+	fs.readFile(www_path + '/footer.html', function(err, data) {
 		footer = data.toString();
 	});
 }
