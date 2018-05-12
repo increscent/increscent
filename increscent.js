@@ -25,6 +25,12 @@ app.use('/', express.static(__dirname + '/global/'));
 app.use(express.json());
 app.use(express.urlencoded());
 
+// mandelbrot (pull from github)
+app.use('/mandelbrot', express.static(__dirname + '/../mandelbrot/'));
+app.get('/mandelbrot', function(req, res) {
+  res.redirect('/mandelbrot/mandelbrot.html');
+});
+
 // initialize app
 ui.init_pages();
 
