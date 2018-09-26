@@ -19,7 +19,6 @@ var ui = require('./ui/ui.js');
 
 // setup web app
 var app = express();
-app.use('/', express.static(__dirname + '/www/rw/'));
 app.use('/', express.static(__dirname + '/www/'));
 app.use('/', express.static(__dirname + '/global/'));
 app.use(express.json());
