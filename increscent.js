@@ -22,7 +22,7 @@ var app = express();
 app.use('/', express.static(__dirname + '/www/'));
 app.use('/', express.static(__dirname + '/global/'));
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: true}));
 
 // mandelbrot (pull from github)
 app.use('/mandelbrot', express.static(__dirname + '/../mandelbrot/'));
@@ -82,4 +82,3 @@ var httpServer = http.createServer(app);
 //var httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(8236);
-//httpsServer.listen(443);
