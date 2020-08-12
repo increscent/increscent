@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 /*
  * Robert Williams
  * Copyright 2014
