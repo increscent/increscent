@@ -2,6 +2,12 @@ server {
     listen 80;
     server_name increscent.org;
     server_name www.increscent.org;
+    server_name rjava.net;
+    server_name www.rjava.net;
+    server_name devan.dev;
+    server_name www.devan.dev;
+    server_name devanandrobert.com;
+    server_name www.devanandrobert.com;
     server_name _;
 
     location / {
