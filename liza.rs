@@ -6,6 +6,7 @@ use std::env;
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::{Error, ErrorKind};
+use std::path::Path;
 
 const CONTENTS: &str = "contents";
 const TEMPLATE: &str = "template";
@@ -159,7 +160,7 @@ fn parse_tag(mut text: &str, map: &mut HashMap<String, String>) -> std::io::Resu
     }
 
     while let Some(c) = text.chars().nth(0) {
-        if c == ' ' || c == '\t' {
+        if char::is_whitespace(c) {
             text = &text[1..];
         } else if let Some(i) = text.find(VALUE_OPEN) {
             let key = String::from(&text[..i]);
@@ -217,14 +218,27 @@ fn replace_tokens(mut text: &str, replace: &HashMap<String, String>) -> std::io:
 }
 
 fn process_file(filename: &str, replace: &HashMap<String, String>) -> std::io::Result<String> {
-    let mut file = File::open(filename)?;
+    let p = Path::new(filename);
+    let prev_path = env::current_dir()?;
+    let path = if p.is_relative() { prev_path.join(p) } else { p.to_path_buf() };
+
+    let mut file = File::open(path.to_path_buf())?;
+
+    if let Some(new_path) = path.parent() {
+        env::set_current_dir(&new_path)?;
+    }
+
     let mut contents = String::new();
 
     file.read_to_string(&mut contents)?;
 
     let ready_text = replace_tokens(&contents[..], replace)?;
 
-    replace_tags(&ready_text[..])
+    let result = replace_tags(&ready_text[..]);
+
+    env::set_current_dir(&prev_path)?;
+
+    return result;
 }
 
 fn exit_with_message(message: &str) -> std::io::Result<String> {
