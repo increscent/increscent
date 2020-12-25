@@ -1,9 +1,0 @@
-{
-  "name": "increscent",
-  "description": "increscent website",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "^4.17.1"
-  }
-}

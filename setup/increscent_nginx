@@ -4,24 +4,9 @@ server {
     server_name www.increscent.org;
     server_name rjava.net;
     server_name www.rjava.net;
-    server_name devan.dev;
-    server_name www.devan.dev;
-    server_name devanandrobert.com;
-    server_name www.devanandrobert.com;
     server_name _;
 
     location / {
-        proxy_pass http://localhost:8236;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto https;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-NginX-Proxy true;
-
-        # Enables WS support
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_redirect off;
+        root /home/robert/increscent/www;
     }
 }
