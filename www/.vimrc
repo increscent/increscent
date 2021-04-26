@@ -8,6 +8,8 @@ set expandtab
 set smarttab
 set nohlsearch
 set pastetoggle=<F2>
+set hidden
+set confirm
 map <Enter> o<ESC>
 map <S-Enter> O<ESC>
 "map <C-W> :w<Enter>
@@ -27,3 +29,6 @@ colorscheme ron
 
 " no annoying auto comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" no annoying delays
+set esckeys
