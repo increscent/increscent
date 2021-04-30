@@ -17,6 +17,8 @@ map <C-H> :w<Enter>
 map <C-X> :wq<Enter>
 map <C-J> <C-E>
 map <C-K> <C-Y>
+map <C-N> :bn<Enter>
+map <C-P> :bp<Enter>
 
 "syntax off
 syntax on
